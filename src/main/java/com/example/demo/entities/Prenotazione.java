@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,13 +10,19 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "prenotazione")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Prenotazione {
 	@Id
 	@GeneratedValue
@@ -26,7 +33,7 @@ public class Prenotazione {
 	@JoinColumn(name = "utente", referencedColumnName = "id")
 	private Utente utente;
 	
-	@OneToOne
+	@OneToOne(mappedBy ="prenotazione")
 	private Postazione postazione;
 	
 	public Prenotazione(LocalDate dataPrenotazione, Utente utente, Postazione postazione ) {

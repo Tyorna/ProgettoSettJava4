@@ -17,6 +17,9 @@ import lombok.Setter;
 	@Table(name = "utenti")
 	@Getter
 	@Setter
+	@NoArgsConstructor
+	@AllArgsConstructor
+	@Builder
 public class Utente {
 		@Id
 		@GeneratedValue
