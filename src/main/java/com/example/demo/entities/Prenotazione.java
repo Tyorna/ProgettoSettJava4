@@ -20,7 +20,7 @@ public class Prenotazione {
 	@Id
 	@GeneratedValue
 	private long id;
-	private LocalDate dataPreontazione;
+	private LocalDate dataPrenotazione;
 	
 	@ManyToOne
 	@JoinColumn(name = "utente", referencedColumnName = "id")
@@ -28,4 +28,16 @@ public class Prenotazione {
 	
 	@OneToOne
 	private Postazione postazione;
+	
+	public Prenotazione(LocalDate dataPrenotazione, Utente utente, Postazione postazione ) {
+		this.dataPrenotazione =  dataPrenotazione;
+		this.utente = utente;
+		this.postazione = postazione;
+	}
+
+	@Override
+	public String toString() {
+		return "Prenotazione [data della prenotazionee=" + dataPrenotazione + ", id=" + id + ", utente=" + utente
+				+ ", numero postazione=" + postazione + "]" + "\n";
+	}
 }

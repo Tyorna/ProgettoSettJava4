@@ -26,5 +26,16 @@ public class Utente {
 		
 		@OneToMany(mappedBy = "utente")
 		private Set<Prenotazione> prenotazione;
+		
+		public Utente(String nomeCompleto, String email) {
+			this.nomeCompleto = nomeCompleto;
+			this.email = email;
+		}
+
+		@Override
+		public String toString() {
+			return "Utente [nome utente=" + nomeCompleto + ", id=" + id + ", email=" + email
+					+ ", numero prenotazione=" + prenotazione + "]" + "\n";
+		}
 	}
 

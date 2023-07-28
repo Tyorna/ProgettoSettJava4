@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,6 +30,6 @@ public class Postazione {
 	@JoinColumn(name = "edificio", referencedColumnName = "id")
 	private Edificio edificio;
 	
-	@OneToOne(mappedBy ="prenotazione")
+	@OneToOne(mappedBy ="postazione")
 	private Prenotazione prenotazione;
 }

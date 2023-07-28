@@ -25,4 +25,15 @@ public class Edificio {
 	@OneToMany(mappedBy = "edificio")
 	private Set<Postazione> postazione;
 	
+	public Edificio(String nome, String indirizzo, String citta) {
+		this.nome = nome;
+		this.indirizzo = indirizzo;
+		this.citta = citta;
+	}
+
+	@Override
+	public String toString() {
+		return "Edificio [nome=" + nome + ", id=" + id + ", indirizzo=" + indirizzo + ", citta=" + citta
+				+ ", postazione=" + postazione + "]" + "\n";
+	}
 }
